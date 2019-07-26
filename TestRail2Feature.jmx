@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.0 r1840935">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="project_root_dir" elementType="Argument">
+            <stringProp name="Argument.name">project_root_dir</stringProp>
+            <stringProp name="Argument.value">c:\Users\davor.banovic\source\bitbucket\tams\TestRail2Feature\</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Constants" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="testrail_host" elementType="Argument">
+            <stringProp name="Argument.name">testrail_host</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.desc">Mijenjati us slucaju promjene adrese testraila. Bez http/s protokola!</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="testrail_user_email" elementType="Argument">
+            <stringProp name="Argument.name">testrail_user_email</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">MIjenjati samo u slucaju promjene admin usera</stringProp>
+          </elementProp>
+          <elementProp name="testrail_basic_authorization_token" elementType="Argument">
+            <stringProp name="Argument.name">testrail_basic_authorization_token</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Mijenjati samo u slucaju promjene passworda</stringProp>
+          </elementProp>
+          <elementProp name="testrail_project_id" elementType="Argument">
+            <stringProp name="Argument.name">testrail_project_id</stringProp>
+            <stringProp name="Argument.value">${__P(project_id, 8)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">NE MIJENJATI</stringProp>
+          </elementProp>
+          <elementProp name="testrail_testsuite_id" elementType="Argument">
+            <stringProp name="Argument.name">testrail_testsuite_id</stringProp>
+            <stringProp name="Argument.value">${__P(testsuite_id, 14)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">NE MIJENJATI</stringProp>
+          </elementProp>
+          <elementProp name="feature_file_folder_relative_path" elementType="Argument">
+            <stringProp name="Argument.name">feature_file_folder_relative_path</stringProp>
+            <stringProp name="Argument.value">${__P(feature_file_folder_relative_path, Test-suite)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="is_feature_to_testrail" elementType="Argument">
+            <stringProp name="Argument.name">is_feature_to_testrail</stringProp>
+            <stringProp name="Argument.value">${__P(is_feature_to_testrail, true)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="is_testrail_to_feature" elementType="Argument">
+            <stringProp name="Argument.name">is_testrail_to_feature</stringProp>
+            <stringProp name="Argument.value">${__P(is_testrail_to_feature, false)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="generated_features_csv_file" elementType="Argument">
+            <stringProp name="Argument.name">generated_features_csv_file</stringProp>
+            <stringProp name="Argument.value">features.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">${testrail_host}</stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.protocol">http</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="ontent-Type" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+          <elementProp name="Authorization" elementType="Header">
+            <stringProp name="Header.name">Authorization</stringProp>
+            <stringProp name="Header.value">${testrail_basic_authorization_token}</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Testrail2Feature" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+          <stringProp name="IfController.condition">${is_testrail_to_feature}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET test suite name" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">index.php?/api/v2/get_suite/${testrail_testsuite_id}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract testrail_testsuite_name" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">testrail_testsuite_name</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">name</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get cases from suite" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="suite_id" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${testrail_testsuite_id}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">suite_id</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">index.php?/api/v2/get_cases/${testrail_project_id}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Create feature files" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import java.io.File;
+import org.apache.commons.io.FileUtils;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.ParseException;
+import org.json.simple.parser.JSONParser;
+
+
+JSONParser parser = new JSONParser();
+
+JSONArray json = parser.parse(prev.getResponseDataAsString());
+
+project_dir_name = vars.get(&quot;project_root_dir&quot;) + &quot;/&quot; + vars.get(&quot;testrail_testsuite_name&quot;);
+project_dir_name_escaped=project_dir_name.replaceAll(&quot; &quot;, &quot;-&quot;);
+project_dir = new File(project_dir_name_escaped);
+project_dir.mkdir();
+
+Iterator it = json.iterator();
+
+while (it.hasNext()) {
+	
+JSONObject element = it.next();
+String feature_file_name = project_dir_name_escaped + &quot;/&quot; + element.get(&quot;id&quot;) + &quot;-&quot; + element.get(&quot;title&quot;).replaceAll(&quot; &quot;,&quot;-&quot;).replaceAll(&quot;:&quot;,&quot;-&quot;).replaceAll(&quot;@&quot;, &quot;&quot;).replaceAll(&quot;/&quot;,&quot;-&quot;) + &quot;.feature&quot; ;
+System.out.println(feature_file_name);
+FileUtils.touch(new File(feature_file_name));
+if (element.get(&quot;custom_steps&quot;)!=null) {
+FileUtils.writeStringToFile(new File(feature_file_name), element.get(&quot;custom_steps&quot;).replaceAll(&quot;\\*&quot;, &quot;&quot;), &quot;UTF-8&quot;);
+}
+
+	}
+</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Feature2Testrail" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+          <stringProp name="IfController.condition">true</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="Collect local testcases" enabled="true">
+            <stringProp name="BeanShellSampler.query">import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+
+project_root_dir=vars.get(&quot;project_root_dir&quot;);
+feature_file_folder_relative_path=vars.get(&quot;feature_file_folder_relative_path&quot;);
+
+File project_work_dir = new File(project_root_dir + feature_file_folder_relative_path);
+JSONObject json_object_feature = new JSONObject();
+JSONArray json_list_features = new JSONArray();
+
+System.out.println(project_work_dir);
+File[] feature_files_list = project_work_dir.listFiles();
+ for(File f : feature_files_list){
+            if(f.isDirectory())
+               getAllFiles(f);
+            if(f.isFile()){
+			Path feature_absolute_path = Paths.get(f.toURI());			
+			testrail_feature_text=Files.readAllLines(feature_absolute_path);
+			testrail_feature_id=f.getName().split(&quot;-&quot;)[0];
+            	//System.out.println(testrail_feature_id);
+            	//System.out.println(testrail_feature_text);
+            	String testrail_feature_text_string = Arrays.toString(testrail_feature_text.toArray());
+            	testrail_feature_text_string_normalized = testrail_feature_text_string.replaceAll(&quot;\\[|\\]&quot;, &quot;&quot;).replaceAll(&quot;    &quot;, &quot;\\\\t&quot;).replaceAll(&quot;,&quot;, &quot;\\\\n&quot;);
+                        
+            	vars.put(&quot;testrail_feature_id&quot;, testrail_feature_id);
+            	vars.put(&quot;testrail_feature_text_string&quot;, testrail_feature_text_string_normalized);
+
+			//json_object_feature.put(&quot;testrail_feature_id&quot;, testrail_feature_id);
+			//json_object_feature.put(&quot;testrail_feature_text_string&quot;, testrail_feature_text_string_normalized);
+			
+
+			//json_list_features.add(json_object_feature);
+
+			//System.out.println(&quot;ovo je json&quot; + json_list_features);
+
+            	
+
+            }
+       }
+
+//System.out.println(json_list_features);
+//return (json_list_features;
+ </stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Save features in CSV file" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">import org.apache.commons.io.FileUtils;
+
+String users_csv_string = prev.getResponseDataAsString();
+String users_csv_file_name = vars.get(&quot;project_root_dir&quot;) + vars.get(&quot;generated_features_csv_file&quot;) ;
+
+
+FileUtils.writeStringToFile(new File(users_csv_file_name), users_csv_string, &quot;UTF-8&quot;);
+FileUtils.touch(new File(users_csv_file_name));
+
+System.out.print(prev.getResponseDataAsString());
+
+prev.setStopThread(true);
+</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree " enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
